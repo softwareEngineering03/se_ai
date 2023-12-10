@@ -13,17 +13,15 @@ def savewithtext(
 ):
     problem_sublist = []
     
-    with open("validation_kakao.csv", mode="a", newline='') as f:
+    with open("validation.csv", mode="a", newline='') as f:
         wr = csv.writer(f)
         for i in range(len(problem_num)):
-            problem_info = [problem_num[i], problem_sub[i], " ".join(problem_des[i].split()), 1]
+            problem_info = [problem_num[i], problem_sub[i], " ".join(problem_des[i].split())]
             # make_problem_dir = f"{file_name}"
             # pytext = open(f"{make_problem_dir}/{file_name}.py", "r").read()
             # readme = open(f"{make_problem_dir}/README.md", "r").read()
             problem_sublist.append(problem_sub[i])
             wr.writerow(problem_info)
-    
-    
         
 
     # 태그 입력을 위한 키워드
@@ -58,7 +56,7 @@ def mkproblemdir(make_step_dir, file_name):
 
 root_path = "./data"
 main_url = "https://www.acmicpc.net"
-url = f"{main_url}/category/detail/1915"
+url = f"{main_url}/problemset?sort=ac_desc&algo=25&algo_if=and&page=3"
 
 
 # Step 가져오기
